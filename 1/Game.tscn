@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://2q6s40i3xpa3"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_4v5dw"]
+[ext_resource type="PackedScene" uid="uid://ckq2mcd2lo30a" path="res://Raquete.tscn" id="1_yc5ig"]
+[ext_resource type="PackedScene" uid="uid://bn784laomneob" path="res://Bola.tscn" id="2_8m3hq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m14xd"]
+size = Vector2(1167, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgot3"]
+size = Vector2(20, 672)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yj3o1"]
+font_size = 32
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_4v5dw")
+
+[node name="Raquete" parent="." instance=ExtResource("1_yc5ig")]
+position = Vector2(91, 252)
+
+[node name="Raquete2" parent="." instance=ExtResource("1_yc5ig")]
+position = Vector2(1065, 282)
+player_crontroller = 1
+
+[node name="Bola" parent="." instance=ExtResource("2_8m3hq")]
+position = Vector2(342, 304)
+
+[node name="Paredes" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(573.5, 0)
+shape = SubResource("RectangleShape2D_m14xd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(579, 641)
+shape = SubResource("RectangleShape2D_m14xd")
+
+[node name="GolPlayer2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GolPlayer2"]
+position = Vector2(1148, 311)
+shape = SubResource("RectangleShape2D_pgot3")
+
+[node name="GolPlayer1" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GolPlayer1"]
+position = Vector2(0, 326)
+shape = SubResource("RectangleShape2D_pgot3")
+
+[node name="scorePlayer1" type="Label" parent="."]
+offset_left = 158.0
+offset_top = 14.0
+offset_right = 187.0
+offset_bottom = 59.0
+text = "0"
+label_settings = SubResource("LabelSettings_yj3o1")
+
+[node name="scorePlayer2" type="Label" parent="."]
+offset_left = 893.0
+offset_top = 16.0
+offset_right = 922.0
+offset_bottom = 61.0
+text = "0"
+label_settings = SubResource("LabelSettings_yj3o1")

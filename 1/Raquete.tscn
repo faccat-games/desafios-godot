@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckq2mcd2lo30a"]
+
+[ext_resource type="Script" path="res://Raquete.gd" id="1_5881b"]
+[ext_resource type="Texture2D" uid="uid://cso1mbxs216f1" path="res://Raquete.png" id="1_b5k56"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii6a6"]
+size = Vector2(20, 116)
+
+[node name="Raquete" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_5881b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b5k56")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ii6a6")
